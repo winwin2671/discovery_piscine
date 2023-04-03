@@ -1,0 +1,41 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.first_ele,
+.mid_ele,
+.last_ele {
+  height: 100%;
+  width: 100%;
+}
+
+h1 {
+  color: white;
+}
+
+.mid_ele {
+  background-color: black;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.first_ele {
+  background-image: url('https://4kwallpapers.com/images/walls/thumbs_3t/3791.jpg');
+  background-size: cover;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.last_ele {
+  background-image: url('https://4kwallpapers.com/images/walls/thumbs_3t/3798.jpg');
+  background-size: cover;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
