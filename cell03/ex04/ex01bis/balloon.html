@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .balloon {
+      width: 200px;
+      height: 200px;
+      border-radius: 100%;
+      background-color: red;
+      cursor: pointer;
+    }
+  </style>
+  <body>
+    <div class="balloon"></div>
+  </body>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      const $balloon = $('.balloon')
+      const colors = ['red', 'green', 'blue']
+      let colorIndex = 0
+
+      $balloon.on('click', function () {
+        let currentSize = parseInt($balloon.css('width'))
+        let newSize = currentSize + 10
+        $balloon.css('width', newSize + 'px')
+        $balloon.css('height', newSize + 'px')
+
+        colorIndex = (colorIndex + 1) % colors.length //maximum value of colorIndex //will reset to 0 if max reach
+        let nextColor = colors[colorIndex]
+        $balloon.css('background-color', nextColor)
+
+        if (newSize > 420) {
+          newSize = 200
+        }
+        $balloon.css('width', newSize + 'px')
+        $balloon.css('height', newSize + 'px')
+      })
+
+      $balloon.on('mouseenter', function () {
+        let prevColorIndex
+        if (colorIndex > 0) {
+          prevColorIndex = colorIndex - 1
+        } else {
+          prevColorIndex = colorIndex.length - 1
+        }
+        let prevColor = colors[prevColorIndex]
+        $balloon.css('background-color', prevColor)
+        currentSize = parseInt($balloon.css('width'))
+      })
+
+      $balloon.on('mouseleave', function () {
+        if (colorIndex > 0) {
+          colorIndex = colorIndex - 1
+        } else {
+          colorIndex = colors.length - 1
+        }
+        let prevColor = colors[colorIndex]
+        $balloon.css('background-color', prevColor)
+        let currentSize = parseInt($balloon.css('width'))
+
+        if (currentSize > 200) {
+          currentSize -= 5
+          $balloon.css('width', currentSize + 'px')
+          $balloon.css('height', currentSize + 'px')
+        }
+      })
+    })
+  </script>
+</html>

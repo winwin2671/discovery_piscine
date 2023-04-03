@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .balloon {
+      width: 200px;
+      height: 200px;
+      border-radius: 100%;
+      background-color: red;
+      cursor: pointer;
+    }
+  </style>
+  <body>
+    <div class="balloon" style="width: 200px; height: 200px;"></div>
+  </body>
+  <script>
+    const balloon = document.querySelector('.balloon')
+    const colors = ['red', 'green', 'blue']
+    let colorIndex = 0
+
+    balloon.addEventListener('click', function () {
+      let currentSize = parseInt(balloon.style.width)
+      let newSize = currentSize + 10
+      balloon.style.width = newSize + 'px'
+      balloon.style.height = newSize + 'px'
+
+      colorIndex = (colorIndex + 1) % colors.length
+      let nextColor = colors[colorIndex]
+      balloon.style.backgroundColor = nextColor
+
+      if (newSize > 420) {
+        newSize = 200
+      }
+      balloon.style.width = newSize + 'px'
+      balloon.style.height = newSize + 'px'
+    })
+
+    balloon.addEventListener('mouseenter', function () {
+      let prevColorIndex = colorIndex > 0 ? colorIndex - 1 : colors.length - 1
+      let prevColor = colors[prevColorIndex]
+      balloon.style.backgroundColor = prevColor
+      currentSize = parseInt(balloon.style.width)
+    })
+
+    balloon.addEventListener('mouseleave', function () {
+      colorIndex = colorIndex > 0 ? colorIndex - 1 : colors.length - 1
+      let prevColor = colors[colorIndex]
+      balloon.style.backgroundColor = prevColor
+      currentSize = parseInt(balloon.style.width)
+
+      if (currentSize > 200) {
+        currentSize -= 5
+        balloon.style.width = currentSize + 'px'
+        balloon.style.height = currentSize + 'px'
+      }
+    })
+  </script>
+</html>

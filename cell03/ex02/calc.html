@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="input1"/>
+    <select id="fill_choice" name="fill_choice">
+      <option value="add">+</option>
+      <option value="minus">-</option>
+      <option value="times">*</option>
+      <option value="divide">/</option>
+      <option value="divide_remainer">%</option>
+    </select>
+    <input type="text" id="input2" />
+    <input type="submit" value="Try me!" id="calculate-btn"></input>
+  </body>
+  <script>
+     const calculateBtn = document.getElementById("calculate-btn");
+     calculateBtn.addEventListener("click", function () {
+      const input1 = parseInt(document.getElementById("input1").value);
+      const input2 = parseInt(document.getElementById("input2").value);
+      const operation = document.getElementById("fill_choice").value;
+      let result;
+     
+      setTimeout(function() {
+        console.log("Please, use me...");
+        alert("Please, use me...");
+    }, 30000);
+    
+      if (isNaN(input1) || isNaN(input2) || input1 < 0 || input2 < 0){
+        alert("Error :(");
+        console.log("Error :(");
+        return;
+      }
+
+      switch(operation){
+        case "add":
+            result = input1 + input2;
+            break;
+        case "minus":
+            result = input1 - input2;
+            break;
+        case "times":
+            result = input1 * input2;
+            break;
+        case "divide":
+          if (input2 === 0) {
+            alert("It’s over 9000!");
+            console.log(result);
+            return;
+          }
+          result = input1 / input2;
+          break;
+        case "divide_remainer":
+          if (input2 === 0) {
+            alert("It’s over 9000!");
+            console.log(result);
+            return;
+          }
+          result = input1 % input2;
+          break;
+        default:
+          alert("Error :(");
+          console.log("Error :(");
+          return;
+      }
+      alert("Result: " + result);
+      console.log("Result: " + result);
+    });
+  </script>
+</html>
