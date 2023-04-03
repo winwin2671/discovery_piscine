@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basic</title>
+  </head>
+  <style>
+   body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100px;
+  background-color: pink;
+}
+    h1 {
+      text-align: center;
+      color: white;
+    }
+    .item {
+      width: 200px;
+      text-align: center;
+      display: block;
+      background-color: transparent;
+      border: 1px solid transparent;
+      margin-right: 10px;
+      margin-bottom: 1px;
+      float: left;
+    }
+    .center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 50%;
+      padding-left: 200px;
+    }
+    .footer {
+        margin-top: auto;
+        text-align: right;
+        color: black;
+        font-family: monospace;
+        font-style: italic;
+    }
+  </style>
+  <body>
+    <h1>-so bigger-</h1>
+    <div class="center">
+      <div id="index-gallery">
+        <div class="item">
+          <img
+            src="https://img.etimg.com/thumb/msid-59738992,width-640,resizemode-4,imgsize-25499/amazon.jpg"
+            width="90%"
+          />
+          <a href="https://www.amazon.com/">Amazon</a>
+        </div>
+
+        <div class="item">
+          <img
+            src="data:image/png;base64,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"
+            width="80%"
+          />
+          <a href="https://www.target.com/">Target</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer" >
+        <hr>© wil 2021</hr>
+    </div> 
+  </body>
+</html>
