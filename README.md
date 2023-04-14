@@ -1,5 +1,5 @@
 # discovery_piscine
-assignment files  from 42 Discovery_Piscine Kmitl
+assignment files  from 42 Bangkok Discovery_Piscine
 
 FYI:
 
